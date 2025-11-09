@@ -12,14 +12,14 @@ jobs:
     strategy:
       matrix:
         # Define a matrix with 3 variants
-        node-version: [18, 20, 22]
+        node-version: [14,16, 18]
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
       # This step includes the required dynamic identifier
-      - name: Build for Node ${{ matrix.node-version }} (matrix-c064f21)
+      - name: Build for Node ${{ matrix.node-version }} (matrix-3d6da2c)
         run: |
           echo "Simulating build for Node.js version ${{ matrix.node-version }}"
           echo "This is the build output." > build_output.txt
@@ -30,6 +30,6 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           # Use the prefix and include the matrix variant in the name
-          name: build-c064f21-node-${{ matrix.node-version }}
+          name: build-3d6da2c-node-${{ matrix.node-version }}
           path: build_output.txt
           retention-days: 7
